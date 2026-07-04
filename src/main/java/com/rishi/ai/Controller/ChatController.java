@@ -1,4 +1,4 @@
-package com.rishi.ai;
+package com.rishi.ai.Controller;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.web.bind.annotation.GetMapping;
