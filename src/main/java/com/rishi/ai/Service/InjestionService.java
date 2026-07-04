@@ -17,7 +17,7 @@ import java.util.List;
 public class InjestionService {
     private final VectorStore vectorStore;
 
-    @Value("classpath:docs/resume.pdf")
+    @Value("classpath:docs/VG_Care_Data.pdf")
     private Resource pdfResource;
 
     public InjestionService(VectorStore vectorStore){
