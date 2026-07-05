@@ -2,6 +2,7 @@ package com.rishi.ai.Controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import com.rishi.ai.DTO.MatchResponse;
 import com.rishi.ai.Scoring.Entity.RankedDoctor;
 import com.rishi.ai.Service.MatchingService;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class MatchController {
 
