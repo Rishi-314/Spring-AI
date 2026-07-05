@@ -1,7 +1,7 @@
 # Spring-AI
 
 
-## How to setup Docker File in this 
+## How to setup Docker File 
 
 Run this Command
 
