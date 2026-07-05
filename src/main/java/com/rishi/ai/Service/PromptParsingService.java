@@ -27,24 +27,24 @@ public class PromptParsingService {
         
         JSON format with EXACT field values:
         {
-          "treatment": "name of treatment/procedure (string or null). Valid options: Angioplasty, Bronchoscopy, Cataract Surgery, Chemotherapy, C-Section, Endoscopy, Joint Injection, Kidney Stone Removal, Knee Replacement, MRI Scan, Psychotherapy, Skin Graft, Tonsillectomy, Ultrasound, Vaccination",
+          "treatment": "name of treatment/procedure EXACTLY as mentioned by user, matched against valid options: Angioplasty, Bronchoscopy, Cataract Surgery, Chemotherapy, C-Section, Endoscopy, Joint Injection, Kidney Stone Removal, Knee Replacement, MRI Scan, Psychotherapy, Skin Graft, Tonsillectomy, Ultrasound, Vaccination. If user mentions a treatment (even with different wording), find the closest match from the list. If NO treatment mentioned, use null",
           "budget": "maximum consultation fee in rupees as integer (e.g., 1500). Range: 700-3000 or null for no budget constraint",
-          "genderPreference": "M for male, F for female, or null for any gender",
-          "languagePreference": "preferred language name (exact match from: English, Hindi, Bengali, Gujarati, Kannada, Malayalam, Punjabi, Tamil, Telugu) or null",
+          "genderPreference": "preferred gender (exact match from: Female, Male) or null for any gender",
+          "languagePreference": "preferred language code (exact match from: en, hi, bn, gu, kn, ml, pa, ta, te) or null. Examples: en=English, hi=Hindi, ta=Tamil",
           "availabilityRequired": "true if specialist must be available now, false or null otherwise"
         }
         
         VALIDATION RULES:
         - treatment: MUST match the list exactly (case-sensitive) or be null
         - budget: MUST be a number between 700-3000, not a string, or null
-        - genderPreference: MUST be exactly "M", "F", or null (never "Male"/"Female")
-        - languagePreference: MUST use exact names from the list above (case-sensitive), or null
+        - genderPreference: MUST be exactly "Female", "Male", or null (full words, case-sensitive)
+        - languagePreference: MUST be exactly "en", "hi", "bn", "gu", "kn", "ml", "pa", "ta", "te", or null
         - availabilityRequired: MUST be true/false/null (boolean), never a string
         - If a field is not mentioned in the user query, use null
         
         Examples:
-        - "I need chemotherapy with ₹1500 budget" → {"treatment":"Chemotherapy","budget":1500,"genderPreference":null,"languagePreference":null,"availabilityRequired":null}
-        - "Female doctor, Hindi speaker, available today" → {"treatment":null,"budget":null,"genderPreference":"F","languagePreference":"Hindi","availabilityRequired":true}
+        - "I need chemotherapy with ₹1500 budget, female doctor" → {"treatment":"Chemotherapy","budget":1500,"genderPreference":"Female","languagePreference":null,"availabilityRequired":null}
+        - "Female doctor, Hindi speaker, available today" → {"treatment":null,"budget":null,"genderPreference":"Female","languagePreference":"hi","availabilityRequired":true}
         
         Respond ONLY with the JSON object, no markdown backticks, no explanation.
                 """;
