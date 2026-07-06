@@ -30,3 +30,9 @@ This project uses PostgreSQL with the `pgvector` extension as the vector store f
 - Database is exposed on `localhost:5433` (mapped to avoid conflicts with any local Postgres install on the default `5432` port).
 - Credentials: `postgres` / `postgres`, database name `ragdb` (see `docker-compose.yml`).
 - Data persists across restarts via a named Docker volume (`pgvector-data`).
+
+## High Level Diagram (API Flow)
+
+<p align="center">
+  <img src="src\main\resources\static\API-Flow.png" width="700">
+</p>
