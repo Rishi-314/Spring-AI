@@ -7,6 +7,7 @@ This project uses PostgreSQL with the `pgvector` extension as the vector store f
 
 ### Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
+- [Ollama](https://ollama.ai/) installed and running locally
 
 ### Steps
 
