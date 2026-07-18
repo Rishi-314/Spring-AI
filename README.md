@@ -37,3 +37,9 @@ This project uses PostgreSQL with the `pgvector` extension as the vector store f
 <p align="center">
   <img src="src\main\resources\static\API-Flow.png" width="700">
 </p>
+
+## Post Man Testing
+
+<p align="center">
+  <img src="src\main\resources\static\WorkingAPI.png" width="700">
+</p>
